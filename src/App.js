@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AppRouter from './app-router/AppRouter';
+import "./App.css"
+import AuthContextProvider from "./contexts/AuthContext"
+import { ToastContainer } from 'react-toastify';
+import BlogContextProvider from './contexts/BlogContext';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AuthContextProvider>
+        <BlogContextProvider>
+        <AppRouter/>
+        <ToastContainer />
+        </BlogContextProvider>
+      </AuthContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
