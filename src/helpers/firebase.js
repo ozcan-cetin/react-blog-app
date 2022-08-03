@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, push, ref, set } from "firebase/database";
+import { getDatabase, onValue, push, ref, remove, set } from "firebase/database";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -143,4 +143,13 @@ export const deleteBlog = (id)=>{
   const blogRef=ref(db,"blogs/");
   remove(ref(db,"blogs/"+id))
   toastSuccessNotify("Deleted successfully")
+}
+
+//edit
+export const updateBlog=(blog)=>{
+  const db = getDatabase(app);
+  const updates={}
+  updates["blogs/"+blog.id]=blog
+  toastSuccessNotify("Edited successfully")
+  return update(ref(db),updates)
 }
