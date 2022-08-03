@@ -9,10 +9,10 @@ const SingleBlog = ({ item }) => {
   const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
-  const { editBlog, blog, increaseLike, color } = useContext(BlogContext);
+  const { editBlog, blog, increaseLike} = useContext(BlogContext);
   // console.log(currentUser.displayName);
   // const displayName = currentUser.displayName;
-  const { title, url, content, userName, id, date, like } = item;
+  const { title, url, content, userName, id, date, like, color } = item;
   console.log(userName);
 
 const defaultImg = "https://picsum.photos/200/300?random=2"

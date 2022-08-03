@@ -17,7 +17,8 @@ const BlogContextProvider = ({ children }) => {
     date:new Date().toLocaleDateString("tr-TR"),
     userName: "",
     like: 0,
-    usersId: [""]
+    usersId: [""],
+    color:color
   };
 
    const [blog, setBlog] = useState(initialValues);
@@ -33,6 +34,7 @@ const BlogContextProvider = ({ children }) => {
       updates["blogs/"+blog.id]={
           ...blog,
           like: blog.like + 1,
+          color:true,
           usersId:[...blog.usersId,currentUser.email]
         }
         setColor(true)
@@ -44,6 +46,7 @@ const BlogContextProvider = ({ children }) => {
         updates["blogs/"+blog.id]={
             ...blog,
             like: blog.like - 1,
+            color:false,
             // usersId:[...blog.usersId,blog.id]
             usersId:[(blog.usersId).filter((item)=>item!==currentUser.email)]
           }

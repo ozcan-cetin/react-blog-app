@@ -114,7 +114,8 @@ export const addBlog=(blog,currentUser)=>{
         userName:currentUser.displayName,
         like:blog.like,
         date:blog.date,
-        usersId:blog.usersId
+        usersId:blog.usersId,
+        color:blog.color
     })
 }
 
