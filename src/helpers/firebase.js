@@ -136,3 +136,11 @@ export const useGetData = () => {
   }, []);
   return { isLoading, blogList };
 };
+
+//delete
+export const deleteBlog = (id)=>{
+  const db = getDatabase(app);
+  const blogRef=ref(db,"blogs/");
+  remove(ref(db,"blogs/"+id))
+  toastSuccessNotify("Deleted successfully")
+}
