@@ -20,10 +20,10 @@ const Navbar = () => {
           BLOGS
         </Link>
       </div>
-      <div className="btnDiv me-2 text-center">
-        <div className="mt-3">
+      <div className="btnDiv me-2 text-center d-flex align-items-center">
+        <div>
           {currentUser && 
-          <h5 className="mb-0 text-capitalize">{currentUser.displayName}</h5>
+          <h5 className="m-0 text-capitalize">{currentUser.displayName}</h5>
         }
         </div>
         <div className="usericon-div">
