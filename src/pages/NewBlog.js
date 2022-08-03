@@ -30,7 +30,7 @@ const NewBlog = () => {
 
   return (
     <div>
-      <form className="new-form row d-flex justify-content-center align-items-center flex-column gap-3 m-auto mt-5 p-3" onSubmit={handleSubmit}>
+      <form className="row new-form d-flex justify-content-center align-items-center flex-column gap-3 m-auto mt-5 p-3 rounded-3" onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
@@ -57,7 +57,7 @@ const NewBlog = () => {
           value={blog.content}
           onChange={handleChange}
         ></textarea>
-        <button type="submit" className="bg-primary rounded-5 text-white">
+        <button type="submit" className="bg-primary rounded-5 text-white py-1">
           SUBMIT
         </button>
       </form>

@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { deleteBlog } from "../helpers/firebase";
+import { TiArrowBack } from "react-icons/ti";
+import { AiTwotoneDelete } from "react-icons/ai";
+import { RiEdit2Fill } from "react-icons/ri";
 
 const Details = () => {
   const { currentUser } = useContext(AuthContext);
@@ -13,45 +16,40 @@ const Details = () => {
   const { url, title, content, userName, id, date } = state;
   return (
     <div className="bg-light m-auto detailContainer px-2 mt-2">
-      <div>
+      <div className="m-auto details-img">
         <img src={url} alt={title} />
       </div>
-      <h1>{title}</h1>
+      <h1 className="text-uppercase text-center p-1">{title}</h1>
       <p className="text-dark fs-4">{date}</p>
       <p>{content}</p>
-      <div className="d-flex justify-content-around pb-3">
+      <div className="d-flex justify-content-between pb-3 pe-2">
+          <TiArrowBack className="fs-3" style={{cursor:"pointer"}} onClick={() => navigate(-1)}/>
         <div>
           {currentUser.displayName === userName && (
             <>
-              <button
+              <span
                 onClick={() => {
                   deleteBlog(id)
                   navigate("/")
                 }
                 }
-                className="btn btn-danger border-0 text-light rounded-3 p-1 mx-1"
               >
-                REMOVE
-              </button>
-              <button
+                {/* REMOVE */}
+                <AiTwotoneDelete className="fs-3 text-danger" style={{cursor:"pointer"}}/>
+              </span>
+              <span
                 onClick={() => {
                   editBlog(state);
                   navigate("/updateblog");
                 }}
-                className="btn btn-success border-0 text-light rounded-3 p-1 mx-1 px-4"
               >
-                EDIT
-              </button>
+                {/* EDIT */}
+                <RiEdit2Fill className="fs-3 text-info" style={{cursor:"pointer"}}/>
+              </span>
             </>
           )}
         </div>
 
-        <button
-          className="btn btn-primary border-0 text-light rounded-3 p-1 mx-1"
-          onClick={() => navigate(-1)}
-        >
-          Back To Home
-        </button>
       </div>
     </div>
   );
