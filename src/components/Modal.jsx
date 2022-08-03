@@ -9,24 +9,24 @@ const Modal = () => {
   return (
     <div className="modalDiv rounded-3 " >
       {currentUser ? (
-        <ul className="m-0 d-flex justify-content-center align-items-center flex-column p-2 ">
+        <ul className="m-0 d-flex justify-content-center align-items-center flex-column p-2">
           <li className="list-unstyled">
-            <Link to="/profile" className="text-dark text-decoration-none fw-bold">Profile</Link>{" "}
+            <Link to="/profile" className="btn btn-light text-dark text-decoration-none fw-bold">Profile</Link>{" "}
           </li>
           <li className="list-unstyled">
-            <Link to="/newblog" className="text-dark text-decoration-none fw-bold">New</Link>{" "}
+            <Link to="/newblog" className="btn btn-light text-dark text-decoration-none fw-bold">New</Link>{" "}
           </li>
           <li className="list-unstyled">
-            <Link to="/login" className="text-dark text-decoration-none fw-bold" onClick={() => logOut()}>Logout</Link>{" "}
+            <Link to="/login" className="btn btn-light text-dark text-decoration-none fw-bold" onClick={() => logOut()}>Logout</Link>{" "}
           </li>
         </ul>
       ) : (
         <ul className="text-center p-2 m-0">
           <li className="list-unstyled">
-            <Link to="/login"className="text-dark text-decoration-none fw-bold">Login</Link>{" "}
+            <Link to="/login"className="btn btn-light text-dark text-decoration-none fw-bold">Login</Link>{" "}
           </li>
           <li className="list-unstyled">
-            <Link to="/register" className="text-dark text-decoration-none fw-bold">Register</Link>{" "}
+            <Link to="/register" className="btn btn-light text-dark text-decoration-none fw-bold">Register</Link>{" "}
           </li>
         </ul>
       )}

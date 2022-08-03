@@ -14,27 +14,29 @@ const SingleBlog = ({ item }) => {
   // const displayName = currentUser.displayName;
   const { title, url, content, userName, id, date, like } = item;
   console.log(userName);
+
+const defaultImg = "https://picsum.photos/200/300?random=2"
   return (
     <div className=" col-lg-4 col-md-6 single rounded-3 mb-2">
-      <div className="bg-light p-2">
+      <div className="card bg-light p-2">
         <div className="img-div">
-          <img src={url} alt={title} />
+          <img src={url ? url : defaultImg} alt={title} />
         </div>
         <h1 className="text-dark header text-center text-capitalize">
           {title.length > 11 ? title.slice(0, 8) + "..." : title}
         </h1>
         <p className="text-dark fs-4">{date}</p>
-        <p className="text-dark ">{content.slice(0, 80)}...</p>
+        <p className="text-dark content">{content.slice(0, 80)}...</p>
         <h5 className="text-dark">@{userName}</h5>
         <div className="btnDiv">
-          <button
+          <button className="btn btn-info p-1"
             onClick={() =>
               navigate("/details", { state: item, replace: false })
             }
           >
             DETAILS
           </button>
-          {currentUser.displayName == userName && (
+          {/* {currentUser.displayName === userName && (
             <>
               <button onClick={() => deleteBlog(id)} className="bg-danger border-0 text-light rounded-3 p-1 mx-1">REMOVE</button>
               <button
@@ -47,8 +49,7 @@ const SingleBlog = ({ item }) => {
                 EDIT
               </button>
             </>
-          )}
-        </div>
+          )} */}
         <div>
           <span
             className={`${!color ? "text-secondary" : "text-danger"}`}
@@ -58,6 +59,7 @@ const SingleBlog = ({ item }) => {
             <AiFillHeart />
           </span>
           <span className="text-dark"> {like}</span>
+        </div>
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ const NewBlog = () => {
 
   return (
     <div>
-      <form className="new-form row d-flex justify-content-center align-items-center flex-column gap-3 m-auto mt-5 p-3 rounded-5" onSubmit={handleSubmit}>
+      <form className="new-form row d-flex justify-content-center align-items-center flex-column gap-3 m-auto mt-5 p-3" onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
@@ -43,7 +43,7 @@ const NewBlog = () => {
           type="text"
           name="url"
           placeholder="IMAGE URL"
-          required
+          // required
           value={blog.url}
           onChange={handleChange}
         />

@@ -16,23 +16,26 @@ const Navbar = () => {
   return (
     <nav className="navbar d-flex justify-content-between bg-primary px-3">
       <div>
-        <Link to="/" className="text-light">
-          LOGO
+        <Link to="/" className="blogs">
+          BLOGS
         </Link>
       </div>
       <div className="btnDiv me-2 text-center">
-        <div>
+        <div className="mt-3">
           {currentUser && 
           <h5 className="mb-0 text-capitalize">{currentUser.displayName}</h5>
         }
         </div>
-        <button className="border-0 fs-3 bg-transparent p-2">
+        <div className="usericon-div">
+          <button className="border-0 fs-3 bg-transparent p-2">
           <FaUserCircle
-            className="text-danger bg-light rounded-circle "
+            className="text-danger bg-light rounded-circle"
             onClick={() => setShow(!show)}
           />
         </button>
         {show && <Modal />}
+        </div>
+        
       </div>
     </nav>
   );
