@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
-import { addBlog } from "../helpers/firebase";
+import { addBlog, updateBlog } from "../helpers/firebase";
+import { useNavigate } from "react-router-dom";
 
 const NewBlog = () => {
   const { blog,setBlog,initialValues} = useContext(BlogContext);
   const {currentUser} = useContext(AuthContext)
+  const navigate=useNavigate()
 
   const handleChange = (e)=> {
     e.preventDefault()
@@ -16,9 +18,13 @@ const NewBlog = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    // setBlog({...blog, userName:currentUser.displayName})
-    addBlog(blog)
+    if(blog.id){
+      updateBlog(blog)
+    }else{
+      addBlog(blog,currentUser)
+    }
     setBlog(initialValues)
+    navigate("/")
   }
 
 
