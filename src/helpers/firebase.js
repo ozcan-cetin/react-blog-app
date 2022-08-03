@@ -77,11 +77,19 @@ export const userObserver = (setCurrentUser) => {
 };
 
 //! log out
-
-export const logOut = () => {
+//! parametre olarak başka isim de verebilirim. 
+export const logOut = (bloglist) => {
   signOut(auth);
   toastSuccessNotify("Logged out successfully!");
+  bloglist.map((singleblog)=>updatecolor(singleblog))
 };
+
+const updatecolor=(singleblog)=>{
+  const db = getDatabase(app);
+  const updates={}
+  updates["blogs/"+singleblog.id]={...singleblog,color:false}
+  return update(ref(db),updates)
+}
 
 export const signUpProvider = (navigate) => {
   //? Google ile giriş yapılması için kullanılan firebase metodu

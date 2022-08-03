@@ -12,7 +12,7 @@ const SingleBlog = ({ item }) => {
   const { editBlog, blog, increaseLike} = useContext(BlogContext);
   // console.log(currentUser.displayName);
   // const displayName = currentUser.displayName;
-  const { title, url, content, userName, id, date, like, color } = item;
+  const { title, url, content, userName, id, date, like, color, usersId } = item;
   console.log(userName);
 
 const defaultImg = "https://picsum.photos/200/300?random=2"
@@ -36,23 +36,10 @@ const defaultImg = "https://picsum.photos/200/300?random=2"
           >
             DETAILS
           </button>
-          {/* {currentUser.displayName === userName && (
-            <>
-              <button onClick={() => deleteBlog(id)} className="bg-danger border-0 text-light rounded-3 p-1 mx-1">REMOVE</button>
-              <button
-                onClick={() => {
-                  editBlog(item);
-                  navigate("/updateblog");
-                }}
-                className="bg-success border-0 text-light rounded-3 p-1 mx-1"
-              >
-                EDIT
-              </button>
-            </>
-          )} */}
+        
         <div>
           <span
-            className={`${!color ? "text-secondary" : "text-danger"}`}
+            className={`${!color  ? (usersId.includes(currentUser.email) ? "text-danger" :"text-secondary") : "text-danger"} fs-4`}
             style={{ cursor: "pointer" }}
             onClick={() => increaseLike(item)}
           >

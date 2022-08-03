@@ -14,10 +14,11 @@ const Details = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const { url, title, content, userName, id, date } = state;
+  const defaultImg = "https://picsum.photos/200/300?random=2"
   return (
     <div className="bg-light m-auto detailContainer px-2 mt-2">
       <div className="m-auto details-img">
-        <img src={url} alt={title} />
+        <img src={url ? url : defaultImg} alt={title} />
       </div>
       <h1 className="text-uppercase text-center p-1">{title}</h1>
       <p className="text-dark fs-4">{date}</p>

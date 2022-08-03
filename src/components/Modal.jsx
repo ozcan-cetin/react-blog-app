@@ -2,10 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import { logOut } from "../helpers/firebase";
+import { logOut, useGetData } from "../helpers/firebase";
 
 const Modal = () => {
   const { currentUser } = useContext(AuthContext);
+const {blogList} = useGetData()
   return (
     <div className="modalDiv rounded-3 " >
       {currentUser ? (
@@ -17,7 +18,7 @@ const Modal = () => {
             <Link to="/newblog" className="btn btn-light text-dark text-decoration-none fw-bold">New</Link>{" "}
           </li>
           <li className="list-unstyled">
-            <Link to="/login" className="btn btn-light text-dark text-decoration-none fw-bold" onClick={() => logOut()}>Logout</Link>{" "}
+            <Link to="/login" className="btn btn-light text-dark text-decoration-none fw-bold" onClick={() => logOut(blogList)}>Logout</Link>{" "}
           </li>
         </ul>
       ) : (
