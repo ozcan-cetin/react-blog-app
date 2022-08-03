@@ -11,7 +11,7 @@ const BlogCard = () => {
       {
         blogList?.map((item)=>{
           return(
-            <SingleBlog item={item}/>
+            <SingleBlog key={item.id} item={item}/>
           )
         })
       }

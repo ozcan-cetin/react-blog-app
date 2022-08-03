@@ -104,15 +104,19 @@ export const signUpProvider = (navigate) => {
 export const db = getDatabase(app);
 
 // add data
-export const addBlog = (blog) => {
-  const blogRef = ref(db, "blogs/");
-  const newBlogRef = push(blogRef);
-  set(newBlogRef, {
-    title: blog.title,
-    url: blog.url,
-    content: blog.content,
-  });
-};
+export const addBlog=(blog,currentUser)=>{
+    const blogRef=ref(db,"blogs/")
+    const newBlogRef=push(blogRef);
+    set(newBlogRef,{
+        title:blog.title,
+        url:blog.url,
+        content:blog.content,
+        userName:currentUser.displayName,
+        like:blog.like,
+        date:blog.date,
+        usersId:blog.usersId
+    })
+}
 
 //get data
 export const useGetData = () => {

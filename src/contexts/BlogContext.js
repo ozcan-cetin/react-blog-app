@@ -5,7 +5,7 @@ export const BlogContext = createContext()
 
 const BlogContextProvider = ({children}) => {
 
-const initialValues = {title:"", url:"", content:""}
+const initialValues = {title:"", url:"", content:"", date:"", userName:"", like:0, usersId:[]}
 
 const [blog, setBlog] = useState(initialValues)
 

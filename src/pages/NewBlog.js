@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { addBlog } from "../helpers/firebase";
 
 const NewBlog = () => {
   const { blog,setBlog,initialValues} = useContext(BlogContext);
+  const {currentUser} = useContext(AuthContext)
 
   const handleChange = (e)=> {
     e.preventDefault()
@@ -14,6 +16,7 @@ const NewBlog = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
+    // setBlog({...blog, userName:currentUser.displayName})
     addBlog(blog)
     setBlog(initialValues)
   }
