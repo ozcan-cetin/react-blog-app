@@ -46,6 +46,7 @@ body{
   transform: translateX(-10%);
   background-color: white;
   box-shadow: 0 3px 3px grey;
+  z-index: 1;
 }
 .register{
   width: 100%;
